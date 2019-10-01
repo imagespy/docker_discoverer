@@ -6,8 +6,8 @@ build:
 
 .PHONY: package
 package:
-	docker build -t imagespy/docker_discoverer:$(VERSION) .
+	docker build -t quay.io/imagespy/docker-discoverer:$(VERSION) .
 
 .PHONY: release
 release: package
-	docker push imagespy/docker_discoverer:$(VERSION)
+	docker push quay.io/imagespy/docker-discoverer:$(VERSION)
