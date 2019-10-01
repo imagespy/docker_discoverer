@@ -1,5 +1,5 @@
 VERSION ?= master
-IMAGE = quay.io/imagespy/docker-discoverer
+IMAGE = imagespy/docker-discoverer
 
 .PHONY: build
 build:
