@@ -1,4 +1,5 @@
 VERSION ?= master
+IMAGE = quay.io/imagespy/docker-discoverer
 
 .PHONY: build
 build:
@@ -6,8 +7,8 @@ build:
 
 .PHONY: package
 package:
-	docker build -t quay.io/imagespy/docker-discoverer:$(VERSION) .
+	docker build -t $(IMAGE):$(VERSION) .
 
 .PHONY: release
 release: package
-	docker push quay.io/imagespy/docker-discoverer:$(VERSION)
+	docker push $(IMAGE):$(VERSION)
