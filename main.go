@@ -20,7 +20,7 @@ const (
 var (
 	discoveryInterval = flag.Duration("discovery.interval", 1*time.Minute, "Interval at which to query the Docker daemon")
 	discoveryOutput   = flag.String("discovery.output", "", "Path to file to write discovered data")
-	logLevel          = flag.String("log.level", "warn", "Set log level")
+	logLevel          = flag.String("log.level", "info", "Set log level")
 )
 
 type Discoverer struct {
