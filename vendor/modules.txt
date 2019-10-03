@@ -37,7 +37,7 @@ github.com/golang/protobuf/ptypes
 github.com/golang/protobuf/ptypes/any
 github.com/golang/protobuf/ptypes/duration
 github.com/golang/protobuf/ptypes/timestamp
-# github.com/imagespy/imagespy v0.0.0-20191001075332-fc870afbb1af
+# github.com/imagespy/imagespy v0.0.0-20191003130708-d2723097ad63
 github.com/imagespy/imagespy/discovery
 # github.com/konsorten/go-windows-terminal-sequences v1.0.1
 github.com/konsorten/go-windows-terminal-sequences

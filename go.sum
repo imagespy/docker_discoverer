@@ -89,6 +89,7 @@ github.com/gorilla/context v1.1.1/go.mod h1:kBGZzfjB9CEq2AlWe17Uuf7NDRt0dE0s8S51
 github.com/gorilla/mux v1.6.2/go.mod h1:1lud6UwP+6orDFRuTfBEV8e9/aOM/c4fVVCaMa2zaAs=
 github.com/gorilla/mux v1.7.0 h1:tOSd0UKHQd6urX6ApfOn4XdBMY6Sh1MfxV3kmaazO+U=
 github.com/gorilla/mux v1.7.0/go.mod h1:1lud6UwP+6orDFRuTfBEV8e9/aOM/c4fVVCaMa2zaAs=
+github.com/gorilla/mux v1.7.3/go.mod h1:1lud6UwP+6orDFRuTfBEV8e9/aOM/c4fVVCaMa2zaAs=
 github.com/gorilla/websocket v1.4.0/go.mod h1:E7qHFY5m1UJ88s3WnNqhKjPHQ0heANvMoAMk2YaljkQ=
 github.com/grpc-ecosystem/go-grpc-middleware v1.0.0/go.mod h1:FiyG127CGDf3tlThmgyCl78X/SZQqEOJBCDaAfeWzPs=
 github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0/go.mod h1:8NvIoxWQoOIhqOTXgfV/d3M/q6VIi02HzZEHgUlZvzk=
@@ -101,6 +102,8 @@ github.com/imagespy/api v0.0.0-20190624195053-1a910b235f36 h1:eHUvf7J3NlhFg7B1Y8
 github.com/imagespy/api v0.0.0-20190624195053-1a910b235f36/go.mod h1:A85JYjrf1gtaCL8ioLJzQp5YUgXiXctTvYblvE/E8yY=
 github.com/imagespy/imagespy v0.0.0-20191001075332-fc870afbb1af h1:TL6cMezsytLgc5VjD6RKJ4d0HZSYF+jnFy6UCslmZUI=
 github.com/imagespy/imagespy v0.0.0-20191001075332-fc870afbb1af/go.mod h1:weMo41HaPlEg70OUyMMVf+hHCyJy7bBI3x2/rG75sHk=
+github.com/imagespy/imagespy v0.0.0-20191003130708-d2723097ad63 h1:WBb7GwMWXJX2JPIlP8uUMVhA+F+0DBhAIF/KS8WhsLQ=
+github.com/imagespy/imagespy v0.0.0-20191003130708-d2723097ad63/go.mod h1:BbpREBpxJVXwo1Qj4j9roO5MIRdboOnnSUZZ29AST6s=
 github.com/imagespy/registry-client v0.0.0-20190922092008-045e1492f55b h1:7+O8WgcC7XkWx6+EtlT59xEM5jzkUdaLflicKC0QHLY=
 github.com/imagespy/registry-client v0.0.0-20190922092008-045e1492f55b/go.mod h1:YX4PSLquGm8Zq/hNT23pZjc7PIsLEK+ggH0ARedpLi8=
 github.com/inconshreveable/mousetrap v1.0.0/go.mod h1:PxqpIevigyE2G7u3NXJIT2ANytuPF1OarO4DADm73n8=

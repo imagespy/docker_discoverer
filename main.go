@@ -4,6 +4,7 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	"os"
 	"time"
 
 	"github.com/docker/distribution/reference"
@@ -18,13 +19,15 @@ const (
 )
 
 var (
+	discoveryAddress  = flag.String("discovery.address", "", "Address of the imagespy server to send discovery data to")
+	discoveryInstance = flag.String("discovery.instance", os.Getenv("HOSTNAME"), "Name of the instance of the Discoverer (defaults to environment variable HOSTNAME)")
 	discoveryInterval = flag.Duration("discovery.interval", 1*time.Minute, "Interval at which to query the Docker daemon")
-	discoveryOutput   = flag.String("discovery.output", "", "Path to file to write discovered data")
 	logLevel          = flag.String("log.level", "info", "Set log level")
 )
 
 type Discoverer struct {
-	c *client.Client
+	c        *client.Client
+	instance string
 }
 
 func (d *Discoverer) Discover() (*discovery.Input, error) {
@@ -38,7 +41,7 @@ func (d *Discoverer) Discover() (*discovery.Input, error) {
 		return nil, fmt.Errorf("list containers: %w", err)
 	}
 
-	result := &discovery.Input{Name: inputName}
+	result := &discovery.Input{Instance: *discoveryInstance, Name: inputName}
 	for _, c := range containers {
 		image, ok := imageIDToImage[c.ImageID]
 		if !ok {
@@ -89,5 +92,5 @@ func main() {
 	log.Info("Starting Docker Discoverer")
 	d := &Discoverer{c: cli}
 	discovery.Log(log.StandardLogger())
-	log.Fatal(discovery.Run(d, *discoveryInterval, *discoveryOutput))
+	log.Fatal(discovery.Run(d, *discoveryInterval, *discoveryAddress))
 }
