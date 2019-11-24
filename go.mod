@@ -7,7 +7,7 @@ require (
 	github.com/docker/docker v0.0.0-20180908092041-caca40c8ecfc
 	github.com/docker/go-units v0.4.0 // indirect
 	github.com/gogo/protobuf v1.3.0 // indirect
-	github.com/imagespy/imagespy v0.0.0-20191124170601-363318a2e0e6
+	github.com/imagespy/imagespy v0.0.0-20191124180037-2cd361c87550
 	github.com/morikuni/aec v1.0.0 // indirect
 	github.com/opencontainers/go-digest v1.0.0-rc1 // indirect
 	github.com/sirupsen/logrus v1.4.2
