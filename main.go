@@ -4,13 +4,13 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"os"
 	"time"
 
 	"github.com/docker/distribution/reference"
 	"github.com/docker/docker/api/types"
 	"github.com/docker/docker/client"
-	"github.com/imagespy/imagespy/discovery"
+	discovery "github.com/imagespy/imagespy"
+	"github.com/imagespy/imagespy/config"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -19,10 +19,7 @@ const (
 )
 
 var (
-	discoveryAddress  = flag.String("discovery.address", "", "Address of the imagespy server to send discovery data to")
-	discoveryInstance = flag.String("discovery.instance", os.Getenv("HOSTNAME"), "Name of the instance of the Discoverer (defaults to environment variable HOSTNAME)")
-	discoveryInterval = flag.Duration("discovery.interval", 1*time.Minute, "Interval at which to query the Docker daemon")
-	logLevel          = flag.String("log.level", "info", "Set log level")
+	logLevel = flag.String("log.level", "info", "Set log level")
 )
 
 type Discoverer struct {
@@ -30,7 +27,7 @@ type Discoverer struct {
 	instance string
 }
 
-func (d *Discoverer) Discover() (*discovery.Input, error) {
+func (d *Discoverer) Discover() (*discovery.Result, error) {
 	imageIDToImage, err := d.mapImagesToIDs()
 	if err != nil {
 		return nil, err
@@ -41,7 +38,7 @@ func (d *Discoverer) Discover() (*discovery.Input, error) {
 		return nil, fmt.Errorf("list containers: %w", err)
 	}
 
-	result := &discovery.Input{Instance: *discoveryInstance, Name: inputName}
+	result := &discovery.Result{}
 	for _, c := range containers {
 		image, ok := imageIDToImage[c.ImageID]
 		if !ok {
@@ -51,15 +48,22 @@ func (d *Discoverer) Discover() (*discovery.Input, error) {
 		digestRef, _ := reference.ParseNormalizedNamed(image.RepoDigests[0])
 		tagRef, _ := reference.ParseNormalizedNamed(c.Image)
 
-		result.Images = append(result.Images, &discovery.Image{
-			Digest:     digestRef.(reference.Canonical).Digest().String(),
-			Repository: fmt.Sprintf("%s/%s", reference.Domain(tagRef), reference.Path(tagRef)),
-			Source:     c.Names[0][1:],
-			Tag:        tagRef.(reference.Tagged).Tag(),
+		result.Containers = append(result.Containers, discovery.Container{
+			CreatedAt: time.Unix(c.Created, 0),
+			Image: discovery.Image{
+				Digest:     digestRef.(reference.Canonical).Digest().String(),
+				Repository: fmt.Sprintf("%s/%s", reference.Domain(tagRef), reference.Path(tagRef)),
+				Tag:        tagRef.(reference.Tagged).Tag(),
+			},
+			Name: c.Names[0][1:],
 		})
 	}
 
 	return result, nil
+}
+
+func (d *Discoverer) Name() string {
+	return "docker"
 }
 
 func (d *Discoverer) mapImagesToIDs() (map[string]types.ImageSummary, error) {
@@ -91,6 +95,7 @@ func main() {
 
 	log.Info("Starting Docker Discoverer")
 	d := &Discoverer{c: cli}
-	discovery.Log(log.StandardLogger())
-	log.Fatal(discovery.Run(d, *discoveryInterval, *discoveryAddress))
+	discovery.SetLog(log.StandardLogger())
+	server := discovery.NewServer(config.FromFlags(), d)
+	log.Fatal(server.Start())
 }
