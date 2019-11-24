@@ -48,7 +48,7 @@ github.com/golang/protobuf/ptypes/duration
 github.com/golang/protobuf/ptypes/timestamp
 # github.com/imagespy/api v0.0.0-20190624195053-1a910b235f36
 github.com/imagespy/api/versionparser
-# github.com/imagespy/imagespy v0.0.0-20191124160303-e572553965e7
+# github.com/imagespy/imagespy v0.0.0-20191124170601-363318a2e0e6
 github.com/imagespy/imagespy
 github.com/imagespy/imagespy/config
 # github.com/imagespy/registry-client v0.0.0-20190922092008-045e1492f55b

@@ -87,6 +87,8 @@ github.com/imagespy/imagespy v0.0.0-20191124154705-5ea145e50a17 h1:aQy44Ri9eX5Ts
 github.com/imagespy/imagespy v0.0.0-20191124154705-5ea145e50a17/go.mod h1:lMPLBKIG8CRIcNc9hm7cprURfxgs8Y/3nHlPvX0Zwyk=
 github.com/imagespy/imagespy v0.0.0-20191124160303-e572553965e7 h1:AHt0t9k7r6ot3J36v1YtltwLNkY2DLAbMjNrKPwAajU=
 github.com/imagespy/imagespy v0.0.0-20191124160303-e572553965e7/go.mod h1:lMPLBKIG8CRIcNc9hm7cprURfxgs8Y/3nHlPvX0Zwyk=
+github.com/imagespy/imagespy v0.0.0-20191124170601-363318a2e0e6 h1:zjz9vKbO8Cg0bdpWjGmyTmm4r8NFGBtLngwKgXaYpaA=
+github.com/imagespy/imagespy v0.0.0-20191124170601-363318a2e0e6/go.mod h1:lMPLBKIG8CRIcNc9hm7cprURfxgs8Y/3nHlPvX0Zwyk=
 github.com/imagespy/registry-client v0.0.0-20190922092008-045e1492f55b h1:7+O8WgcC7XkWx6+EtlT59xEM5jzkUdaLflicKC0QHLY=
 github.com/imagespy/registry-client v0.0.0-20190922092008-045e1492f55b/go.mod h1:YX4PSLquGm8Zq/hNT23pZjc7PIsLEK+ggH0ARedpLi8=
 github.com/inconshreveable/mousetrap v1.0.0/go.mod h1:PxqpIevigyE2G7u3NXJIT2ANytuPF1OarO4DADm73n8=
