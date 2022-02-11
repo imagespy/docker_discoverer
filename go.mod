@@ -3,7 +3,7 @@ module github.com/imagespy/docker_discoverer
 go 1.13
 
 require (
-	github.com/docker/distribution v2.7.1+incompatible
+	github.com/docker/distribution v2.8.0+incompatible
 	github.com/docker/docker v0.0.0-20180908092041-caca40c8ecfc
 	github.com/docker/go-units v0.4.0 // indirect
 	github.com/gogo/protobuf v1.3.0 // indirect
