@@ -11,7 +11,7 @@ require (
 	github.com/morikuni/aec v1.0.0 // indirect
 	github.com/opencontainers/go-digest v1.0.0-rc1 // indirect
 	github.com/sirupsen/logrus v1.4.2
-	golang.org/x/net v0.0.0-20190930134127-c5a3c61f89f3 // indirect
+	golang.org/x/net v0.7.0 // indirect
 	google.golang.org/grpc v1.24.0 // indirect
 )
 
